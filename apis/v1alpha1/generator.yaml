@@ -1,32 +1,33 @@
 ignore:
   resource_names:
     - AnomalyDetector
+    - CompositeAlarm
     - InsightRule
     - ManagedInsightRule
     - MetricStream
 model_name: monitoring
 operations:
-  # PutAnomalyDetector:
-  #   operation_type:
-  #   - Create
-  #   resource_name: AnomalyDetector
-  PutCompositeAlarm:
+  DeleteAlarms:
     operation_type:
-    - Create
-    resource_name: CompositeAlarm
-  # PutInsightRule:
-  #   operation_type:
-  #   - Create
-  #   resource_name: InsightRule
-  # PutManagedInsightRules:
-  #   operation_type:
-  #   - Create
-  #   resource_name: ManagedInsightRule
+    - Delete
+    resource_name: MetricAlarm
+  DescribeAlarms:
+    operation_type:
+    - List
+    resource_name: MetricAlarm
   PutMetricAlarm:
     operation_type:
     - Create
+    - Update
     resource_name: MetricAlarm
-  # PutMetricStream:
-  #   operation_type:
-  #   - Create
-  #   resource_name: MetricStream
+resources:
+  MetricAlarm:
+    fields:
+      Name:
+        is_primary_key: true
+        is_required: true
+    renames:
+      operations:
+        PutMetricAlarm:
+          input_fields:
+            AlarmName: Name

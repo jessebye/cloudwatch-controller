@@ -4,7 +4,7 @@ kind: Role
 metadata:
   creationTimestamp: null
   name: ack-cloudwatch-reader
-  namespace: {{ .Release.Namespace }}
+  namespace: default
 rules:
 - apiGroups:
   - cloudwatch.services.k8s.aws

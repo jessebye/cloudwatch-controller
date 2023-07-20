@@ -44,16 +44,16 @@ spec:
                 description: "The actions to execute when this alarm transitions to
                   the ALARM state from any other state. Each action is specified as
                   an Amazon Resource Name (ARN). Valid values: \n EC2 actions: \n
-                  * arn:aws:automate:region:ec2:stop \n * arn:aws:automate:region:ec2:terminate
-                  \n * arn:aws:automate:region:ec2:reboot \n * arn:aws:automate:region:ec2:recover
-                  \n * arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Stop/1.0
-                  \n * arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Terminate/1.0
-                  \n * arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Reboot/1.0
-                  \n * arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Recover/1.0
-                  \n Autoscaling action: \n * arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName/group-friendly-name:policyName/policy-friendly-name
-                  \n SNS notification action: \n * arn:aws:sns:region:account-id:sns-topic-name:autoScalingGroupName/group-friendly-name:policyName/policy-friendly-name
-                  \n SSM integration actions: \n * arn:aws:ssm:region:account-id:opsitem:severity#CATEGORY=category-name
-                  \n * arn:aws:ssm-incidents::account-id:responseplan/response-plan-name"
+                  - arn:aws:automate:region:ec2:stop \n - arn:aws:automate:region:ec2:terminate
+                  \n - arn:aws:automate:region:ec2:reboot \n - arn:aws:automate:region:ec2:recover
+                  \n - arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Stop/1.0
+                  \n - arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Terminate/1.0
+                  \n - arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Reboot/1.0
+                  \n - arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Recover/1.0
+                  \n Autoscaling action: \n - arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName/group-friendly-name:policyName/policy-friendly-name
+                  \n SNS notification action: \n - arn:aws:sns:region:account-id:sns-topic-name:autoScalingGroupName/group-friendly-name:policyName/policy-friendly-name
+                  \n SSM integration actions: \n - arn:aws:ssm:region:account-id:opsitem:severity#CATEGORY=category-name
+                  \n - arn:aws:ssm-incidents::account-id:responseplan/response-plan-name"
                 items:
                   type: string
                 type: array
@@ -122,16 +122,16 @@ spec:
                 description: "The actions to execute when this alarm transitions to
                   the INSUFFICIENT_DATA state from any other state. Each action is
                   specified as an Amazon Resource Name (ARN). Valid values: \n EC2
-                  actions: \n * arn:aws:automate:region:ec2:stop \n * arn:aws:automate:region:ec2:terminate
-                  \n * arn:aws:automate:region:ec2:reboot \n * arn:aws:automate:region:ec2:recover
-                  \n * arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Stop/1.0
-                  \n * arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Terminate/1.0
-                  \n * arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Reboot/1.0
-                  \n * arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Recover/1.0
-                  \n Autoscaling action: \n * arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName/group-friendly-name:policyName/policy-friendly-name
-                  \n SNS notification action: \n * arn:aws:sns:region:account-id:sns-topic-name:autoScalingGroupName/group-friendly-name:policyName/policy-friendly-name
-                  \n SSM integration actions: \n * arn:aws:ssm:region:account-id:opsitem:severity#CATEGORY=category-name
-                  \n * arn:aws:ssm-incidents::account-id:responseplan/response-plan-name"
+                  actions: \n - arn:aws:automate:region:ec2:stop \n - arn:aws:automate:region:ec2:terminate
+                  \n - arn:aws:automate:region:ec2:reboot \n - arn:aws:automate:region:ec2:recover
+                  \n - arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Stop/1.0
+                  \n - arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Terminate/1.0
+                  \n - arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Reboot/1.0
+                  \n - arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Recover/1.0
+                  \n Autoscaling action: \n - arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName/group-friendly-name:policyName/policy-friendly-name
+                  \n SNS notification action: \n - arn:aws:sns:region:account-id:sns-topic-name:autoScalingGroupName/group-friendly-name:policyName/policy-friendly-name
+                  \n SSM integration actions: \n - arn:aws:ssm:region:account-id:opsitem:severity#CATEGORY=category-name
+                  \n - arn:aws:ssm-incidents::account-id:responseplan/response-plan-name"
                 items:
                   type: string
                 type: array
@@ -248,16 +248,16 @@ spec:
               oKActions:
                 description: "The actions to execute when this alarm transitions to
                   an OK state from any other state. Each action is specified as an
-                  Amazon Resource Name (ARN). Valid values: \n EC2 actions: \n * arn:aws:automate:region:ec2:stop
-                  \n * arn:aws:automate:region:ec2:terminate \n * arn:aws:automate:region:ec2:reboot
-                  \n * arn:aws:automate:region:ec2:recover \n * arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Stop/1.0
-                  \n * arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Terminate/1.0
-                  \n * arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Reboot/1.0
-                  \n * arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Recover/1.0
-                  \n Autoscaling action: \n * arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName/group-friendly-name:policyName/policy-friendly-name
-                  \n SNS notification action: \n * arn:aws:sns:region:account-id:sns-topic-name:autoScalingGroupName/group-friendly-name:policyName/policy-friendly-name
-                  \n SSM integration actions: \n * arn:aws:ssm:region:account-id:opsitem:severity#CATEGORY=category-name
-                  \n * arn:aws:ssm-incidents::account-id:responseplan/response-plan-name"
+                  Amazon Resource Name (ARN). Valid values: \n EC2 actions: \n - arn:aws:automate:region:ec2:stop
+                  \n - arn:aws:automate:region:ec2:terminate \n - arn:aws:automate:region:ec2:reboot
+                  \n - arn:aws:automate:region:ec2:recover \n - arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Stop/1.0
+                  \n - arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Terminate/1.0
+                  \n - arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Reboot/1.0
+                  \n - arn:aws:swf:region:account-id:action/actions/AWS_EC2.InstanceId.Recover/1.0
+                  \n Autoscaling action: \n - arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName/group-friendly-name:policyName/policy-friendly-name
+                  \n SNS notification action: \n - arn:aws:sns:region:account-id:sns-topic-name:autoScalingGroupName/group-friendly-name:policyName/policy-friendly-name
+                  \n SSM integration actions: \n - arn:aws:ssm:region:account-id:opsitem:severity#CATEGORY=category-name
+                  \n - arn:aws:ssm-incidents::account-id:responseplan/response-plan-name"
                 items:
                   type: string
                 type: array

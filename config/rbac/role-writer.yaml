@@ -4,13 +4,12 @@ kind: Role
 metadata:
   creationTimestamp: null
   name: ack-cloudwatch-writer
-  namespace: {{ .Release.Namespace }}
+  namespace: default
 rules:
 - apiGroups:
   - cloudwatch.services.k8s.aws
   resources:
   - metricalarms
-
   verbs:
   - create
   - delete

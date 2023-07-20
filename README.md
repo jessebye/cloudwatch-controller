@@ -1,7 +1,7 @@
-# ACK service controller for Amazon CloudWatch
+# ACK service controller for Amazon CloudWatch Monitoring
 
 This repository contains source code for the AWS Controllers for Kubernetes
-(ACK) service controller for CloudWatch.
+(ACK) service controller for CloudWatch Monitoring.
 
 Please [log issues][ack-issues] and feedback on the main AWS Controllers for
 Kubernetes Github project.
