@@ -87,20 +87,20 @@ func (rm *resourceManager) sdkFind(
 	ko := r.ko.DeepCopy()
 
 	found := false
-	for _, elem := range resp.CompositeAlarms {
+	for _, elem := range resp.MetricAlarms {
 		if elem.ActionsEnabled != nil {
 			ko.Spec.ActionsEnabled = elem.ActionsEnabled
 		} else {
 			ko.Spec.ActionsEnabled = nil
 		}
 		if elem.AlarmActions != nil {
-			f6 := []*string{}
-			for _, f6iter := range elem.AlarmActions {
-				var f6elem string
-				f6elem = *f6iter
-				f6 = append(f6, &f6elem)
+			f1 := []*string{}
+			for _, f1iter := range elem.AlarmActions {
+				var f1elem string
+				f1elem = *f1iter
+				f1 = append(f1, &f1elem)
 			}
-			ko.Spec.AlarmActions = f6
+			ko.Spec.AlarmActions = f1
 		} else {
 			ko.Spec.AlarmActions = nil
 		}
@@ -109,27 +109,173 @@ func (rm *resourceManager) sdkFind(
 		} else {
 			ko.Spec.AlarmDescription = nil
 		}
-		if elem.InsufficientDataActions != nil {
-			f12 := []*string{}
-			for _, f12iter := range elem.InsufficientDataActions {
-				var f12elem string
-				f12elem = *f12iter
-				f12 = append(f12, &f12elem)
-			}
-			ko.Spec.InsufficientDataActions = f12
+		if elem.ComparisonOperator != nil {
+			ko.Spec.ComparisonOperator = elem.ComparisonOperator
 		} else {
-			ko.Spec.InsufficientDataActions = nil
+			ko.Spec.ComparisonOperator = nil
 		}
-		if elem.OKActions != nil {
+		if elem.DatapointsToAlarm != nil {
+			ko.Spec.DatapointsToAlarm = elem.DatapointsToAlarm
+		} else {
+			ko.Spec.DatapointsToAlarm = nil
+		}
+		if elem.Dimensions != nil {
+			f8 := []*svcapitypes.Dimension{}
+			for _, f8iter := range elem.Dimensions {
+				f8elem := &svcapitypes.Dimension{}
+				if f8iter.Name != nil {
+					f8elem.Name = f8iter.Name
+				}
+				if f8iter.Value != nil {
+					f8elem.Value = f8iter.Value
+				}
+				f8 = append(f8, f8elem)
+			}
+			ko.Spec.Dimensions = f8
+		} else {
+			ko.Spec.Dimensions = nil
+		}
+		if elem.EvaluateLowSampleCountPercentile != nil {
+			ko.Spec.EvaluateLowSampleCountPercentile = elem.EvaluateLowSampleCountPercentile
+		} else {
+			ko.Spec.EvaluateLowSampleCountPercentile = nil
+		}
+		if elem.EvaluationPeriods != nil {
+			ko.Spec.EvaluationPeriods = elem.EvaluationPeriods
+		} else {
+			ko.Spec.EvaluationPeriods = nil
+		}
+		if elem.ExtendedStatistic != nil {
+			ko.Spec.ExtendedStatistic = elem.ExtendedStatistic
+		} else {
+			ko.Spec.ExtendedStatistic = nil
+		}
+		if elem.InsufficientDataActions != nil {
 			f13 := []*string{}
-			for _, f13iter := range elem.OKActions {
+			for _, f13iter := range elem.InsufficientDataActions {
 				var f13elem string
 				f13elem = *f13iter
 				f13 = append(f13, &f13elem)
 			}
-			ko.Spec.OKActions = f13
+			ko.Spec.InsufficientDataActions = f13
+		} else {
+			ko.Spec.InsufficientDataActions = nil
+		}
+		if elem.MetricName != nil {
+			ko.Spec.MetricName = elem.MetricName
+		} else {
+			ko.Spec.MetricName = nil
+		}
+		if elem.Metrics != nil {
+			f15 := []*svcapitypes.MetricDataQuery{}
+			for _, f15iter := range elem.Metrics {
+				f15elem := &svcapitypes.MetricDataQuery{}
+				if f15iter.AccountId != nil {
+					f15elem.AccountID = f15iter.AccountId
+				}
+				if f15iter.Expression != nil {
+					f15elem.Expression = f15iter.Expression
+				}
+				if f15iter.Id != nil {
+					f15elem.ID = f15iter.Id
+				}
+				if f15iter.Label != nil {
+					f15elem.Label = f15iter.Label
+				}
+				if f15iter.MetricStat != nil {
+					f15elemf4 := &svcapitypes.MetricStat{}
+					if f15iter.MetricStat.Metric != nil {
+						f15elemf4f0 := &svcapitypes.Metric{}
+						if f15iter.MetricStat.Metric.Dimensions != nil {
+							f15elemf4f0f0 := []*svcapitypes.Dimension{}
+							for _, f15elemf4f0f0iter := range f15iter.MetricStat.Metric.Dimensions {
+								f15elemf4f0f0elem := &svcapitypes.Dimension{}
+								if f15elemf4f0f0iter.Name != nil {
+									f15elemf4f0f0elem.Name = f15elemf4f0f0iter.Name
+								}
+								if f15elemf4f0f0iter.Value != nil {
+									f15elemf4f0f0elem.Value = f15elemf4f0f0iter.Value
+								}
+								f15elemf4f0f0 = append(f15elemf4f0f0, f15elemf4f0f0elem)
+							}
+							f15elemf4f0.Dimensions = f15elemf4f0f0
+						}
+						if f15iter.MetricStat.Metric.MetricName != nil {
+							f15elemf4f0.MetricName = f15iter.MetricStat.Metric.MetricName
+						}
+						if f15iter.MetricStat.Metric.Namespace != nil {
+							f15elemf4f0.Namespace = f15iter.MetricStat.Metric.Namespace
+						}
+						f15elemf4.Metric = f15elemf4f0
+					}
+					if f15iter.MetricStat.Period != nil {
+						f15elemf4.Period = f15iter.MetricStat.Period
+					}
+					if f15iter.MetricStat.Stat != nil {
+						f15elemf4.Stat = f15iter.MetricStat.Stat
+					}
+					if f15iter.MetricStat.Unit != nil {
+						f15elemf4.Unit = f15iter.MetricStat.Unit
+					}
+					f15elem.MetricStat = f15elemf4
+				}
+				if f15iter.Period != nil {
+					f15elem.Period = f15iter.Period
+				}
+				if f15iter.ReturnData != nil {
+					f15elem.ReturnData = f15iter.ReturnData
+				}
+				f15 = append(f15, f15elem)
+			}
+			ko.Spec.Metrics = f15
+		} else {
+			ko.Spec.Metrics = nil
+		}
+		if elem.Namespace != nil {
+			ko.Spec.Namespace = elem.Namespace
+		} else {
+			ko.Spec.Namespace = nil
+		}
+		if elem.OKActions != nil {
+			f17 := []*string{}
+			for _, f17iter := range elem.OKActions {
+				var f17elem string
+				f17elem = *f17iter
+				f17 = append(f17, &f17elem)
+			}
+			ko.Spec.OKActions = f17
 		} else {
 			ko.Spec.OKActions = nil
+		}
+		if elem.Period != nil {
+			ko.Spec.Period = elem.Period
+		} else {
+			ko.Spec.Period = nil
+		}
+		if elem.Statistic != nil {
+			ko.Spec.Statistic = elem.Statistic
+		} else {
+			ko.Spec.Statistic = nil
+		}
+		if elem.Threshold != nil {
+			ko.Spec.Threshold = elem.Threshold
+		} else {
+			ko.Spec.Threshold = nil
+		}
+		if elem.ThresholdMetricId != nil {
+			ko.Spec.ThresholdMetricID = elem.ThresholdMetricId
+		} else {
+			ko.Spec.ThresholdMetricID = nil
+		}
+		if elem.TreatMissingData != nil {
+			ko.Spec.TreatMissingData = elem.TreatMissingData
+		} else {
+			ko.Spec.TreatMissingData = nil
+		}
+		if elem.Unit != nil {
+			ko.Spec.Unit = elem.Unit
+		} else {
+			ko.Spec.Unit = nil
 		}
 		found = true
 		break
@@ -610,6 +756,16 @@ func (rm *resourceManager) newDeleteRequestPayload(
 	r *resource,
 ) (*svcsdk.DeleteAlarmsInput, error) {
 	res := &svcsdk.DeleteAlarmsInput{}
+
+	if r.ko.Spec.Name != nil {
+		f0 := []*string{}
+		for _, f0iter := range r.ko.Spec.Name {
+			var f0elem string
+			f0elem = *f0iter
+			f0 = append(f0, &f0elem)
+		}
+		res.SetAlarmNames(f0)
+	}
 
 	return res, nil
 }

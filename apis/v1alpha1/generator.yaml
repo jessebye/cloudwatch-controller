@@ -12,6 +12,7 @@ operations:
     - Delete
     resource_name: MetricAlarm
   DescribeAlarms:
+    output_wrapper_field_path: MetricAlarms
     operation_type:
     - List
     resource_name: MetricAlarm
@@ -31,3 +32,6 @@ resources:
         PutMetricAlarm:
           input_fields:
             AlarmName: Name
+        DeleteAlarms:
+          input_fields:
+            AlarmNames: Name
