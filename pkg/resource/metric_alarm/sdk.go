@@ -743,6 +743,8 @@ func (rm *resourceManager) sdkDelete(
 	if err != nil {
 		return nil, err
 	}
+	input.SetAlarmNames([]*string{r.ko.Spec.Name})
+
 	var resp *svcsdk.DeleteAlarmsOutput
 	_ = resp
 	resp, err = rm.sdkapi.DeleteAlarmsWithContext(ctx, input)
@@ -756,16 +758,6 @@ func (rm *resourceManager) newDeleteRequestPayload(
 	r *resource,
 ) (*svcsdk.DeleteAlarmsInput, error) {
 	res := &svcsdk.DeleteAlarmsInput{}
-
-	if r.ko.Spec.Name != nil {
-		f0 := []*string{}
-		for _, f0iter := range r.ko.Spec.Name {
-			var f0elem string
-			f0elem = *f0iter
-			f0 = append(f0, &f0elem)
-		}
-		res.SetAlarmNames(f0)
-	}
 
 	return res, nil
 }

@@ -32,3 +32,6 @@ resources:
         PutMetricAlarm:
           input_fields:
             AlarmName: Name
+    hooks:
+      sdk_delete_post_build_request:
+        template_path: hooks/metricalarm/sdk_delete_post_build_request.go.tpl
